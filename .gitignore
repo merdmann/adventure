@@ -1,6 +1,7 @@
 log/
 *.log
 *.o
+*.local
 build/
 .cproject
 .project

@@ -33,8 +33,11 @@ all test:  ./build
 
 ## this build always the frontend and test code
 ./build:
-	mkdir -p ./build
-	( cd  build && cmake -G "Unix Makefiles" $(root)/trunk  )
+	mkdir -p ./build;  \
+	cd  build; \
+	export BOOST_ROOT=$(BOOST_ROOT);  \
+	export IGLOO_ROOT=$(IGLOO_ROOT);  \
+	cmake -G "Unix Makefiles" $(root)/trunk
 
 clean:
 	rm -rf ./build

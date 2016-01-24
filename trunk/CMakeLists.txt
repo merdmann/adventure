@@ -38,6 +38,7 @@ endif()
 ##SET(boost ${LIB_PATH}/boost_1_56_0 ${LIB_PATH}/boost_1_57_0)
 ##SET(igloo ${LIB_PATH}/igloo-igloo.1.1.1)
 SET(igloo $ENV{IGLOO_ROOT})
+message( WARNING ${igloo})
 
 ## setup compiler environment
 SET( CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -std=c++11 -g -ggdb" )
