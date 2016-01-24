@@ -1,0 +1,5 @@
+{
+    "env": {
+        "BOOST_ROOT": "/c/lib/boost_1_57_0"
+    }
+}

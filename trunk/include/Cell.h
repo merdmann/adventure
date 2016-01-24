@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2014 Michael Erdmann <michael.erdmann@snafu.de>
- * 
+ *
  * Cell.h is part of Adventure.
  *
  * Adventure is free software: you can redistribute it and/or modify

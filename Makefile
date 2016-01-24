@@ -24,16 +24,17 @@
 ##
 ##
 ##
+include ./make.local
 
 root=$(shell pwd)
 
-all:  ./build
-	$(MAKE) -C./build $@
+all test:  ./build
+	$(MAKE)  -C./build $@
 
 ## this build always the frontend and test code
 ./build:
 	mkdir -p ./build
-	( cd  build && cmake -G "Unix Makefiles" $(root)/trunk )
+	( cd  build && cmake -G "Unix Makefiles" $(root)/trunk  )
 
 clean:
 	rm -rf ./build

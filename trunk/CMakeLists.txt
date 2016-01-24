@@ -18,18 +18,26 @@
 ##
 ##  Created on: Nov 2, 2014
 ##      Author: MIchael
-## 
+##
 cmake_minimum_required(VERSION 3.0)
 
 project(adventure)
 
 ## ---------------------------------------------------------------------------
 
-SET(LIB_PATH d:/lib)
+SET(LIB_PATH c:/lib)
 
 ## the path the some external libraries/include files
-SET(boost ${LIB_PATH}/boost_1_56_0 ${LIB_PATH}/boost_1_57_0)
-SET(igloo ${LIB_PATH}/igloo-igloo.1.1.1)
+find_package(Boost 1.57.0 )
+if(Boost_FOUND)
+  include_directories(${Boost_INCLUDE_DIRS})
+else()
+  message( FATAL_ERROR "Boost not found")
+endif()
+
+##SET(boost ${LIB_PATH}/boost_1_56_0 ${LIB_PATH}/boost_1_57_0)
+##SET(igloo ${LIB_PATH}/igloo-igloo.1.1.1)
+SET(igloo $ENV{IGLOO_ROOT})
 
 ## setup compiler environment
 SET( CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -std=c++11 -g -ggdb" )
@@ -38,18 +46,18 @@ include_directories(${PROJECT_SOURCE_DIR}/include ${boost} ${igloo} )
 ## setup the build environment
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)
-  
+
 ## -----------------------------------------------------------------------------
 
 SET(interfaces IGameContext.cpp IPlayable.cpp IComponent.cpp CoreException.cpp  )
 
 ## contents of the core library
-SET(source Helpers.cpp ${interfaces} 
-    TheMatrix.cpp 
-    Canvas.cpp 
-    Door.cpp 
-    Cell.cpp 
-    Location.cpp 
+SET(source Helpers.cpp ${interfaces}
+    TheMatrix.cpp
+    Canvas.cpp
+    Door.cpp
+    Cell.cpp
+    Location.cpp
     PlayerFactory.cpp
     PlayerInteractive.cpp
     PlayerInteractiveComponent.cpp
@@ -75,7 +83,7 @@ SET(VERSION_MINOR "0")
 SET(VERSION_PATCH "0")
 
 SET(CMAKE_BUILD_TYPE "debug")
-    
+
 set(CPACK_GENERATOR WIX)
 set(CPACK_PACKAGE_NAME "mydll")
 set(CPACK_PACKAGE_VENDOR "Michaelslab")
@@ -87,4 +95,3 @@ set(CPACK_PACKAGE_VERSION_PATCH "0")
 set(CPACK_PACKAGE_INSTALL_DIRECTORY "Adventure")
 
 INCLUDE(CPack)
-

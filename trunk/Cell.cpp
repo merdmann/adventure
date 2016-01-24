@@ -26,8 +26,8 @@
 #include "DirectionType.h"
 
 namespace adventure {
-// --------------------------------------------------------------------------------
-Cell::Cell(int cellSize) {
+// ----------------------------------------------------------------------------
+Cell::Cell() {
   this->isVisited_ = false;
 
   for (int i = 0; i < 4; ++i) this->connector_[i] = NULL;
@@ -37,7 +37,7 @@ Cell::~Cell() {
   // TODO Auto-generated destructor stub
 }
 
-// --------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 char Cell::show() {
   if (this->isVisited_) return '.';
   else    return ' ';
