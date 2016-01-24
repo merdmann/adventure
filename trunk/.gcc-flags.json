@@ -1,0 +1,8 @@
+{
+  "execPath": "g++",
+  "gccDefaultCFlags": "-Wall",
+  "gccDefaultCppFlags": "-Wall -std=c++11",
+  "gccErrorLimit": 15,
+  "gccIncludePaths": "./trunk/include,c:/lib/boost_1_57_0",
+  "gccSuppressWarnings": true
+}

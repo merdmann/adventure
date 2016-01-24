@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+   <Product Id="*" UpgradeCode="c20664bb-c6d9-4193-80bc-54277965cd60" 
+            Name="Adventure" Version="0.0.1" Manufacturer="Michaelslab" Language="1033">
+      <Package InstallerVersion="200" Compressed="yes" Comments="Windows Installer Package"/>
+      <Media Id="1" Cabinet="product.cab" EmbedCab="yes"/>
+ 
+      <Directory Id="TARGETDIR" Name="SourceDir">
+         <Directory Id="ProgramFilesFolder">
+            <Directory Id="INSTALLDIR" Name="Example">
+               <Component Id="MainExecutable" Guid="d0cd7ae9-c02d-4155-a091-dab78a7f3fae">
+                  <File Id="AdvEXE" Source="adv.exe" KeyPath='yes'>
+                  	<Shortcut Id="desktopAdvEXE" 
+                  		Directory="DesktopFolder" Name="Adventure"
+                  		WorkingDirectory='INSTALLDIR' Icon="Adv.exe" IconIndex="0" 
+                  		Advertise="yes" />
+              	  </File>
+               </Component>
+            </Directory>
+         </Directory>
+      </Directory>
+ 
+      <Feature Id="DefaultFeature" Level="1">
+         <ComponentRef Id="ApplicationFiles"/>
+      </Feature>
+   </Product>
+</Wix>
