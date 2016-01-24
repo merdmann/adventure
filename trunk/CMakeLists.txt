@@ -25,8 +25,6 @@ project(adventure)
 
 ## ---------------------------------------------------------------------------
 
-SET(LIB_PATH c:/lib)
-
 ## the path the some external libraries/include files
 find_package(Boost 1.57.0 )
 if(Boost_FOUND)
@@ -35,10 +33,7 @@ else()
   message( FATAL_ERROR "Boost not found")
 endif()
 
-##SET(boost ${LIB_PATH}/boost_1_56_0 ${LIB_PATH}/boost_1_57_0)
-##SET(igloo ${LIB_PATH}/igloo-igloo.1.1.1)
 SET(igloo $ENV{IGLOO_ROOT})
-message( WARNING ${igloo})
 
 ## setup compiler environment
 SET( CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -std=c++11 -g -ggdb" )

@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2014 Michael Erdmann <michael.erdmann@snafu.de>
- * 
+ *
  * FlexArguments.cpp is part of adv.
  *
  * adv is free software: you can redistribute it and/or modify
